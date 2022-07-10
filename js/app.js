@@ -1,9 +1,16 @@
 let servisWorkerRegister;
 
+var url = window.location.href;
+var swLocation = "/web-push/sw.js";
+
 if (navigator.serviceWorker) {
   console.log("SW disponible");
   window.addEventListener("load", () => {
-    navigator.serviceWorker.register("sw.js").then((register) => {
+    if (url.includes("localhost")) {
+      swLocation = "/sw.js";
+    }
+
+    navigator.serviceWorker.register(swLocation).then((register) => {
       servisWorkerRegister = register;
       refresh();
     });
