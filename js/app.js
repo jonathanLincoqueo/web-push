@@ -3,7 +3,7 @@ let servisWorkerRegister;
 if (navigator.serviceWorker) {
   console.log("SW disponible");
   window.addEventListener("load", () => {
-    navigator.serviceWorker.register("/sw.js").then((register) => {
+    navigator.serviceWorker.register("sw.js").then((register) => {
       servisWorkerRegister = register;
       refresh();
     });
